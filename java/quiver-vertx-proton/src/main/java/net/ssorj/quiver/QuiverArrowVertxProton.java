@@ -226,6 +226,7 @@ public class QuiverArrowVertxProton {
 
         if(!client) {
             sender.setSource(sender.getRemoteSource());
+            sender.setTarget(sender.getRemoteTarget());
         }
 
         sender.sendQueueDrainHandler((s) -> {
@@ -283,6 +284,7 @@ public class QuiverArrowVertxProton {
 
         if(!client) {
             receiver.setTarget(receiver.getRemoteTarget());
+            receiver.setSource(receiver.getRemoteSource());
         }
 
         receiver.setAutoAccept(false).setPrefetch(0).flow(creditWindow);
